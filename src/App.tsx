@@ -13,9 +13,13 @@ const StyledAppbar = styled(AppBar)(({ theme }) => ({
 }));
 
 const queryClient = new QueryClient();
+
+// Main App component that includes the AppBar and routing logic
 const App: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Determine if the current page is a recipe detail page
   const isDetailPage = location.pathname.startsWith("/recipe/");
 
   return (
@@ -24,7 +28,11 @@ const App: React.FC = () => {
         <StyledAppbar position="static">
           <Toolbar>
             {isDetailPage && (
-              <ArrowBackIos color="inherit" onClick={() => navigate(-1)} />
+              <ArrowBackIos
+                color="inherit"
+                sx={{ cursor: "pointer" }}
+                onClick={() => navigate(-1)}
+              />
             )}
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Recipes

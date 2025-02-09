@@ -4,6 +4,7 @@ import { useState } from "react";
 const SearchBar: React.FC<{ onSearch: (query: string) => void }> = ({ onSearch }) => {
     const [search, setSearch] = useState<string>('');
   
+    // Debounce the onSearch callback to reduce API calls
     const debouncedSearch = debounce((value: string) => {
       onSearch(value);
     }, 500);

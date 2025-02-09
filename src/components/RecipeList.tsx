@@ -24,6 +24,8 @@ const RecipeList: React.FC<{ query: string; showFavorites: boolean }> = ({
   const [favorites, setFavorites] = useState<Recipe[]>(() => {
     return JSON.parse(localStorage.getItem("favorites") || "[]");
   });
+
+  // Update localStorage whenever favorites change
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
@@ -36,6 +38,7 @@ const RecipeList: React.FC<{ query: string; showFavorites: boolean }> = ({
     );
   };
 
+   // Determine which recipes to display based on the "showFavorites" flag
   const filteredRecipes = showFavorites ? favorites : data?.recipes;
 
   if (isLoading)

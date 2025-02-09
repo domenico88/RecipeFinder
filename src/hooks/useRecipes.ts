@@ -13,6 +13,6 @@ export const useRecipe = (id: string) => {
   return useQuery({
     queryKey: ["recipe", id],
     queryFn: () => fetchRecipe(id),
-    enabled: !!id,
+    enabled: !!id, // Only run the query if the search query is not empty
   });
 };
