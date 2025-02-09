@@ -83,10 +83,10 @@ describe("Recipe Search App", () => {
       </BrowserRouter>
     );
 
-    const searchInput = screen.getByLabelText(/Search recipe/i);
+    const searchInput = await screen.getByLabelText(/Search recipe/i);
     fireEvent.change(searchInput, { target: { value: "Pasta" } });
 
-    await waitFor(() => expect(screen.getByText("Pasta")).toBeInTheDocument());
+    waitFor(() => expect(screen.getByText("Pasta")).toBeInTheDocument());
   });
   test("shows the favorites button", () => {
     render(
