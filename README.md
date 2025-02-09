@@ -40,3 +40,4 @@ This project utilizes **React Query** for data fetching and caching, **React Rou
  * Material UI: a simple way to manage the CSS part,I overrode the theme to inject it in the App.tsx with the ThemeProvider
  * Zod: used to validate DTO and manage runtime errors
  * Vite: wanted to try another kind of build tool and development server. Vite can offer a great HMR and it has a great bundler and transpiler.
+ * What could I do better: managing the image loading to show a skeleton during the onloading and an avatar in case of error
